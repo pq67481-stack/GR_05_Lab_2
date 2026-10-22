@@ -1,0 +1,11 @@
+{
+  "model": "Linear Regression OLS",
+  "preprocessing_sha256": "f5ed9f795a30eb59b12020a2dbeb3281cf9b135290d4aa43c428171595077faa",
+  "selection_metric": "validation RMSE",
+  "test_used_for_tuning": false,
+  "parameters": {
+    "method": "numpy.linalg.lstsq",
+    "fit_intercept": true
+  },
+  "negative_prediction_policy": "Giữ nguyên, không cắt về 0 để làm đẹp điểm."
+}

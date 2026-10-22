@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "checks": [
+    "All notebooks executed top to bottom",
+    "No notebook error outputs",
+    "Known exact OLS data",
+    "OLS reset state",
+    "OLS predictions match independent sklearn implementation",
+    "Fixed-seed tree repeats exactly",
+    "Same split and preprocessing for both models",
+    "Demo encoding matches train-fitted OneHotEncoder",
+    "Imputation from train only",
+    "Selection uses validation RMSE across 12 configurations"
+  ]
+}

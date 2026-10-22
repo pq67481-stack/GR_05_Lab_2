@@ -1,0 +1,13 @@
+metric,value
+raw_rows,8523
+raw_columns,12
+clean_rows,8523
+duplicates_removed,0
+products,1559
+outlets,10
+fat_labels_normalized,545
+missing_item_weight,1463
+missing_outlet_size,2410
+zero_visibility,526
+zero_target,0
+negative_target,0

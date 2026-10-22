@@ -1,0 +1,12 @@
+{
+  "model": "Decision Tree",
+  "preprocessing_sha256": "f5ed9f795a30eb59b12020a2dbeb3281cf9b135290d4aa43c428171595077faa",
+  "selection_metric": "validation RMSE",
+  "test_used_for_tuning": false,
+  "parameters": {
+    "max_depth": 5,
+    "min_samples_leaf": 20,
+    "random_state": 42
+  },
+  "negative_prediction_policy": "Giữ nguyên, không cắt về 0 để làm đẹp điểm."
+}

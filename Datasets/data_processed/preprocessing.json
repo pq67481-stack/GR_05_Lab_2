@@ -1,0 +1,118 @@
+{
+  "seed": 42,
+  "target": "Item_Outlet_Sales",
+  "numeric_columns": [
+    "Item_Weight",
+    "Item_Visibility",
+    "Item_MRP",
+    "Outlet_Establishment_Year",
+    "Item_Weight_Missing",
+    "Outlet_Size_Missing",
+    "Item_Visibility_Zero"
+  ],
+  "category_columns": [
+    "Item_Fat_Content",
+    "Item_Type",
+    "Outlet_Size",
+    "Outlet_Location_Type",
+    "Outlet_Type"
+  ],
+  "feature_names": [
+    "Item_Weight",
+    "Item_Visibility",
+    "Item_MRP",
+    "Outlet_Establishment_Year",
+    "Item_Weight_Missing",
+    "Outlet_Size_Missing",
+    "Item_Visibility_Zero",
+    "Item_Fat_Content_Regular",
+    "Item_Type_Breads",
+    "Item_Type_Breakfast",
+    "Item_Type_Canned",
+    "Item_Type_Dairy",
+    "Item_Type_Frozen Foods",
+    "Item_Type_Fruits and Vegetables",
+    "Item_Type_Hard Drinks",
+    "Item_Type_Health and Hygiene",
+    "Item_Type_Household",
+    "Item_Type_Meat",
+    "Item_Type_Others",
+    "Item_Type_Seafood",
+    "Item_Type_Snack Foods",
+    "Item_Type_Soft Drinks",
+    "Item_Type_Starchy Foods",
+    "Outlet_Size_Medium",
+    "Outlet_Size_Small",
+    "Outlet_Location_Type_Tier 2",
+    "Outlet_Location_Type_Tier 3",
+    "Outlet_Type_Supermarket Type1",
+    "Outlet_Type_Supermarket Type2",
+    "Outlet_Type_Supermarket Type3"
+  ],
+  "weight_median": 12.65,
+  "size_mode": "Medium",
+  "categories": {
+    "Item_Fat_Content": [
+      "Low Fat",
+      "Regular"
+    ],
+    "Item_Type": [
+      "Baking Goods",
+      "Breads",
+      "Breakfast",
+      "Canned",
+      "Dairy",
+      "Frozen Foods",
+      "Fruits and Vegetables",
+      "Hard Drinks",
+      "Health and Hygiene",
+      "Household",
+      "Meat",
+      "Others",
+      "Seafood",
+      "Snack Foods",
+      "Soft Drinks",
+      "Starchy Foods"
+    ],
+    "Outlet_Size": [
+      "High",
+      "Medium",
+      "Small"
+    ],
+    "Outlet_Location_Type": [
+      "Tier 1",
+      "Tier 2",
+      "Tier 3"
+    ],
+    "Outlet_Type": [
+      "Grocery Store",
+      "Supermarket Type1",
+      "Supermarket Type2",
+      "Supermarket Type3"
+    ]
+  },
+  "one_hot_drop": "first",
+  "unknown_categories": {
+    "validation": {
+      "Item_Fat_Content": 0,
+      "Item_Type": 0,
+      "Outlet_Size": 0,
+      "Outlet_Location_Type": 0,
+      "Outlet_Type": 0
+    },
+    "test": {
+      "Item_Fat_Content": 0,
+      "Item_Type": 0,
+      "Outlet_Size": 0,
+      "Outlet_Location_Type": 0,
+      "Outlet_Type": 0
+    }
+  },
+  "unknown_policy": "Bỏ qua: các cột One-Hot của nhóm chưa gặp bằng 0; có thể trùng nhóm tham chiếu.",
+  "clean_sha256": "7c8a85bf81346c9de4ae891b31afe9e742d943c62de1f5ed617ff1575d931da5",
+  "split_sha256": "ed5458bf26179a33e497253378ee3f85a8c0ee04a247b51ba55950a3f8a64108",
+  "n_train": 5966,
+  "n_validation": 1278,
+  "n_test": 1279,
+  "scaling": "Không chuẩn hóa ở bản OLS và cây hiện tại; không huấn luyện gradient descent."
+}

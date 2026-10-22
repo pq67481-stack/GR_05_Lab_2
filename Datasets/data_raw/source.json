@@ -1,0 +1,9 @@
+{
+  "dataset": "Bigmart Sales Dataset",
+  "source": "https://www.kaggle.com/datasets/yasserh/bigmartsalesdataset",
+  "original_file": "bigmart.csv",
+  "encoding": "UTF-8",
+  "sha256": "6f1b47d794ff393663517a075c3648baf413d0f1d687878b21c806d293ec2e41",
+  "saved_date": "2026-10-22",
+  "note": "CSV nguyên bản từ ZIP Kaggle đã tải khi kiểm tra dataset. Giữ nguyên byte. Metadata Kaggle ghi CC0; nguồn cuộc thi Analytics Vidhya có điều khoản riêng, cần đối chiếu trước khi phân phối lại dữ liệu gốc."
+}
