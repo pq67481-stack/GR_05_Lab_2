@@ -50,9 +50,6 @@ Cây fit lại cùng seed/cấu hình cho dự đoán test giống hệt.
 Kiểm tra split không chồng chỉ mục, imputer train-only, JSON notebook hợp lệ.
 
 ## Chỉ số bổ sung R²
-
-$$R^2 = 1 - \frac{\sum_{i=1}^{n}(y_i-\hat y_i)^2}{\sum_{i=1}^{n}(y_i-\bar y)^2}.$$
-
 Ở đây, $\bar y$ là trung bình doanh số thật của **chính tập đang đánh giá**.
 R² càng cao càng tốt: 1 là dự đoán hoàn hảo; 0 tương đương luôn dự đoán trung bình tập đánh giá;
 âm là kém hơn mức đó. R² không phải Accuracy và không có đơn vị.
