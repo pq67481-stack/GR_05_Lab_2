@@ -72,6 +72,9 @@ pip install -r requirements.txt
 
 ### 2.2. Chạy quy trình 4 pha từ Terminal
 ```bash
+# Phase 1: Chia tách tập dữ liệu & Tiền xử lý đóng băng (Train/Val/Test)
+python src/data_loader.py
+
 # Phase 2: Huấn luyện mô hình (Linear Regression & Decision Tree)
 python src/train.py
 

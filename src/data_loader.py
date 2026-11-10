@@ -237,3 +237,58 @@ def load_dataset(
 
 
 clean_raw_data = load_clean_data
+
+
+def run_data_pipeline(force_recompute: bool = True) -> None:
+    """
+    Thực thi toàn bộ pipeline chia tập dữ liệu và tiền xử lý:
+    1. Đọc dữ liệu sạch từ bigmart_clean.csv
+    2. Chia tách độc lập thành 3 tập: Train (70%), Validation (15%), Test (15%)
+    3. Fit tham số tiền xử lý trên Train, Transform sang Validation và Test
+    4. Lưu kết quả ra thư mục data/BigMart_Sales/processed/
+    5. In thông tin chi tiết và thống kê ra màn hình
+    """
+    print("=" * 65)
+    print("QUY TRÌNH CHIA DỮ LIỆU & TIỀN XỬ LÝ (DATA SPLITTING & PIPELINE)")
+    print("=" * 65)
+
+    clean_df = load_clean_data()
+    print("[*] Nạp dữ liệu thành công từ bigmart_clean.csv:")
+    print(f"    - Tổng số mẫu: {len(clean_df):,} dòng x {clean_df.shape[1]} cột")
+
+    print("\n[*] Thực hiện chia tách tập dữ liệu (70% Train - 15% Val - 15% Test)...")
+    train_df, val_df, test_df = split_data(clean_df)
+    print(f"    - Train set     : {len(train_df):,} dòng ({len(train_df)/len(clean_df)*100:.1f}%)")
+    print(f"    - Validation set: {len(val_df):,} dòng ({len(val_df)/len(clean_df)*100:.1f}%)")
+    print(f"    - Test set      : {len(test_df):,} dòng ({len(test_df)/len(clean_df)*100:.1f}%)")
+
+    print("\n[*] Thực thi Fit bộ tiền xử lý trên Train & Transform sang Val/Test...")
+    train_split, val_split, test_split, metadata = fit_and_transform_pipeline(train_df, val_df, test_df)
+    (X_train, y_train), (X_val, y_val), (X_test, y_test) = train_split, val_split, test_split
+
+    print("    - Các tham số học được từ Train (đóng băng để tránh Data Leakage):")
+    print(f"      + Median Item_Weight : {metadata['frozen_weight_median']:.2f}")
+    print(f"      + Mode Outlet_Size   : {metadata['frozen_size_mode']}")
+    print(f"      + Tổng số đặc trưng  : {len(metadata['feature_names'])} cột")
+
+    proc_dir = get_processed_data_dir()
+    print(f"\n[*] Đang lưu các file dữ liệu đã chia và xử lý vào:")
+    print(f"    Thư mục: {proc_dir}")
+    save_processed_data(train_split, val_split, test_split, metadata, proc_dir)
+
+    print("\n[✓] DANH SÁCH CÁC FILE ĐÃ TẠO THÀNH CÔNG:")
+    print(f"    ├── X_train.csv          : {X_train.shape} (Ma trận đặc trưng Train)")
+    print(f"    ├── y_train.csv          : {y_train.shape} (Nhãn doanh số Train)")
+    print(f"    ├── X_validation.csv     : {X_val.shape} (Ma trận đặc trưng Validation)")
+    print(f"    ├── y_validation.csv     : {y_val.shape} (Nhãn doanh số Validation)")
+    print(f"    ├── X_test.csv           : {X_test.shape} (Ma trận đặc trưng Test)")
+    print(f"    ├── y_test.csv           : {y_test.shape} (Nhãn doanh số Test)")
+    print("    └── preprocessing.json   : Lưu trữ các tham số tiền xử lý đóng băng")
+    print("=" * 65)
+    print("HOÀN THÀNH CHIA VÀ XỬ LÝ DỮ LIỆU THÀNH CÔNG!")
+    print("=" * 65)
+
+
+if __name__ == "__main__":
+    run_data_pipeline(force_recompute=True)
+
