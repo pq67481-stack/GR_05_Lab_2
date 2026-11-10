@@ -9,12 +9,22 @@ from sklearn.preprocessing import OneHotEncoder
 REPO_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 
 
+def get_processed_data_dir() -> str:
+    """Trả về thư mục processed (ưu tiên data/BigMart_Sales/processed, sau đó data/tu_data/processed)."""
+    p1 = os.path.join(REPO_ROOT, "data", "BigMart_Sales", "processed")
+    if os.path.isdir(p1):
+        return p1
+    return os.path.join(REPO_ROOT, "data", "tu_data", "processed")
+
+
 def load_clean_data(clean_path: Optional[str] = None) -> pd.DataFrame:
     """
     Nạp dữ liệu đã qua bước xử lý cục bộ và làm sạch ban đầu từ 02_EDA.ipynb (bigmart_clean.csv).
     """
     if clean_path is None:
-        clean_path = os.path.join(REPO_ROOT, "data", "tu_data", "processed", "bigmart_clean.csv")
+        p1 = os.path.join(REPO_ROOT, "data", "BigMart_Sales", "processed", "bigmart_clean.csv")
+        p2 = os.path.join(REPO_ROOT, "data", "tu_data", "processed", "bigmart_clean.csv")
+        clean_path = p1 if os.path.exists(p1) else p2
 
     if not os.path.exists(clean_path):
         raise FileNotFoundError(
@@ -153,10 +163,10 @@ def save_processed_data(
     output_dir: Optional[str] = None
 ) -> None:
     """
-    Lưu các tập dữ liệu X, y và metadata tiền xử lý ra thư mục data/tu_data/processed/.
+    Lưu các tập dữ liệu X, y và metadata tiền xử lý ra thư mục data processed.
     """
     if output_dir is None:
-        output_dir = os.path.join(REPO_ROOT, "data", "tu_data", "processed")
+        output_dir = get_processed_data_dir()
     os.makedirs(output_dir, exist_ok=True)
 
     (X_train, y_train), (X_val, y_val), (X_test, y_test) = train_split, val_split, test_split
@@ -175,9 +185,9 @@ def save_processed_data(
 
 def load_processed_data() -> Tuple[Tuple[pd.DataFrame, pd.Series], Tuple[pd.DataFrame, pd.Series], Tuple[pd.DataFrame, pd.Series]]:
     """
-    Nạp trực tiếp các tập dữ liệu X, y đã lưu trong data/tu_data/processed/
+    Nạp trực tiếp các tập dữ liệu X, y đã lưu trong thư mục processed.
     """
-    proc_dir = os.path.join(REPO_ROOT, "data", "tu_data", "processed")
+    proc_dir = get_processed_data_dir()
 
     X_train = pd.read_csv(os.path.join(proc_dir, "X_train.csv"))
     y_train = pd.read_csv(os.path.join(proc_dir, "y_train.csv"))
@@ -205,7 +215,7 @@ def load_dataset(
     - Nếu force_recompute=True: Nạp từ bigmart_clean.csv (kết quả làm sạch cục bộ từ EDA),
       thực hiện chia tập 70/15/15 và chạy lại tuần tự quy trình Fit (Train) / Transform (Val/Test).
     """
-    proc_dir = os.path.join(REPO_ROOT, "data", "tu_data", "processed")
+    proc_dir = get_processed_data_dir()
     has_processed = (
         os.path.exists(os.path.join(proc_dir, "X_train.csv")) and
         os.path.exists(os.path.join(proc_dir, "y_train.csv")) and

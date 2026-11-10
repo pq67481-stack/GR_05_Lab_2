@@ -23,7 +23,9 @@ def load_preprocessing_metadata(meta_path: Optional[str] = None) -> Dict[str, An
     Nạp các tham số tiền xử lý đóng băng từ Train (preprocessing.json).
     """
     if meta_path is None:
-        meta_path = os.path.join(REPO_ROOT, "data", "tu_data", "processed", "preprocessing.json")
+        p1 = os.path.join(REPO_ROOT, "data", "BigMart_Sales", "processed", "preprocessing.json")
+        p2 = os.path.join(REPO_ROOT, "data", "tu_data", "processed", "preprocessing.json")
+        meta_path = p1 if os.path.exists(p1) else p2
 
     if not os.path.exists(meta_path):
         raise FileNotFoundError(

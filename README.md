@@ -13,7 +13,7 @@ GR_05_Lab_2/
 ├── .vscode/
 │   └── settings.json
 ├── data/
-│   └── tu_data/
+│   └── BigMart_Sales/
 │       ├── raw/
 │       │   ├── bigmart.csv
 │       │   └── source.json
@@ -101,3 +101,4 @@ python src/inference.py
 | | **Test (15%)** | **0.5916** | **1,083.41** | **755.95** | **58.46%** |
 
 *Mô hình Decision Tree Regressor đạt hiệu năng vượt trội và không bị Overfitting.*
+
