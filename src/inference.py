@@ -41,9 +41,8 @@ def load_trained_models(
     model_type: str = "both"
 ) -> Tuple[Optional[LinearRegressionModel], Optional[DecisionTreeRegressorModel]]:
     """
-    Nạp mô hình đã huấn luyện từ file JSON lưu trữ trong thư mục outputs/:
-    - model_type: "lr" (Linear Regression), "dt" (Decision Tree), hoặc "both".
-    """
+    Nạp mô hình đã huấn luyện từ file JSON lưu trữ trong thư mục outputs"""
+
     lr_path = os.path.join(REPO_ROOT, "outputs", "linear_regression_trained_model.json")
     dt_path = os.path.join(REPO_ROOT, "outputs", "decision_tree_trained_model.json")
 
@@ -68,13 +67,7 @@ def preprocess_raw_input(
     data: Union[Dict[str, Any], List[Dict[str, Any]], pd.DataFrame],
     metadata: Optional[Dict[str, Any]] = None
 ) -> pd.DataFrame:
-    """
-    Tiền xử lý dữ liệu thô đầu vào thành ma trận 30 đặc trưng chuẩn xác:
-    - Chuẩn hóa chuỗi và nhãn Item_Fat_Content
-    - Điền khuyết Item_Weight và Outlet_Size bằng tham số đóng băng từ Train
-    - Tạo các cờ chỉ báo chất lượng
-    - Mã hóa One-Hot theo danh sách 30 đặc trưng chuẩn mực từ Train
-    """
+    
     if metadata is None:
         metadata = load_preprocessing_metadata()
 

@@ -20,10 +20,6 @@ GR_05_Lab_2/
 │       └── processed/
 │           ├── bigmart_clean.csv
 │           ├── preprocessing.json
-│           ├── split_indices.csv
-│           ├── test_processed.csv
-│           ├── train_processed.csv
-│           ├── val_processed.csv
 │           ├── X_test.csv
 │           ├── X_train.csv
 │           ├── X_validation.csv
