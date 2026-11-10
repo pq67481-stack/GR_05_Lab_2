@@ -1,0 +1,110 @@
+{
+    "model_name": "Linear Regression (OLS via SVD)",
+    "hyperparameters": {
+        "fit_intercept": true,
+        "rcond": 1e-10
+    },
+    "learned_parameters": {
+        "intercept": -39279.971956,
+        "weights": {
+            "Item_Weight": -1.564731,
+            "Item_Visibility": -430.323316,
+            "Item_MRP": 15.814188,
+            "Outlet_Establishment_Year": 31.77666,
+            "Item_Weight_Missing": -12471.443078,
+            "Outlet_Size_Missing": -185.944349,
+            "Item_Visibility_Zero": 48.633409,
+            "Item_Fat_Content_Regular": 76.036225,
+            "Item_Type_Breads": -15.519847,
+            "Item_Type_Breakfast": 30.84069,
+            "Item_Type_Canned": 28.473802,
+            "Item_Type_Dairy": -101.460203,
+            "Item_Type_Frozen Foods": -25.902268,
+            "Item_Type_Fruits and Vegetables": 45.361329,
+            "Item_Type_Hard Drinks": 20.667091,
+            "Item_Type_Health and Hygiene": 36.399985,
+            "Item_Type_Household": 18.223421,
+            "Item_Type_Meat": -15.901393,
+            "Item_Type_Others": -2.343198,
+            "Item_Type_Seafood": 355.152063,
+            "Item_Type_Snack Foods": -9.881271,
+            "Item_Type_Soft Drinks": -31.08194,
+            "Item_Type_Starchy Foods": 27.637215,
+            "Outlet_Size_Medium": -13120.220055,
+            "Outlet_Size_Small": -13182.547223,
+            "Outlet_Location_Type_Tier 2": -91.501861,
+            "Outlet_Location_Type_Tier 3": -12776.126919,
+            "Outlet_Type_Supermarket Type1": -10955.179233,
+            "Outlet_Type_Supermarket Type2": 1123.091854,
+            "Outlet_Type_Supermarket Type3": 16054.427404
+        }
+    },
+    "training_details": {
+        "n_samples": 5966,
+        "n_features": 30,
+        "design_matrix_shape": [
+            5966,
+            31
+        ],
+        "effective_rank": 30,
+        "condition_number": 368411817904981.75,
+        "singular_values": [
+            154708.3129,
+            4824.3429,
+            325.5426,
+            62.484,
+            53.5986,
+            38.6457,
+            35.1582,
+            29.5072,
+            27.2973,
+            26.8743,
+            24.0626,
+            23.7886,
+            23.048,
+            21.6028,
+            20.8908,
+            19.2963,
+            18.7302,
+            18.0379,
+            16.4939,
+            13.7875,
+            12.5696,
+            11.5357,
+            11.0069,
+            10.817,
+            9.142,
+            6.6371,
+            6.5826,
+            4.8651,
+            3.4977,
+            0.0584,
+            0.0
+        ],
+        "RSS": 7747154190.6014,
+        "TSS": 17644054984.3195
+    },
+    "evaluation_metrics": {
+        "train": {
+            "MSE": 1298550.8197,
+            "RMSE": 1139.5397,
+            "MAE": 847.5831,
+            "MAPE(%)": 104.2144,
+            "R2": 0.5609
+        },
+        "validation": {
+            "MSE": 1159774.6858,
+            "RMSE": 1076.9284,
+            "MAE": 787.7648,
+            "MAPE(%)": 99.0741,
+            "R2": 0.5748
+        },
+        "test": {
+            "MSE": 1260792.4704,
+            "RMSE": 1122.8502,
+            "MAE": 833.1474,
+            "MAPE(%)": 115.5457,
+            "R2": 0.5614
+        }
+    }
+}

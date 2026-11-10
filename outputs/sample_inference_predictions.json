@@ -1,0 +1,49 @@
+{
+    "inference_pipeline": "BigMart Sales Predictor",
+    "sample_single_normal": {
+        "input_sample": {
+            "Item_Identifier": "FDA15",
+            "Item_Weight": 9.3,
+            "Item_Fat_Content": "Low Fat",
+            "Item_Visibility": 0.016047,
+            "Item_Type": "Dairy",
+            "Item_MRP": 249.8092,
+            "Outlet_Identifier": "OUT049",
+            "Outlet_Establishment_Year": 1999,
+            "Outlet_Size": "Medium",
+            "Outlet_Location_Type": "Tier 1",
+            "Outlet_Type": "Supermarket Type1"
+        },
+        "linear_regression": {
+            "predicted_sales": 3993.78
+        },
+        "decision_tree": {
+            "predicted_sales": 4101.64,
+            "leaf_node_id": 47,
+            "decision_path": "Item_MRP > 143.5299 and Outlet_Type_Supermarket Type3 <= 0.5 and Outlet_Type_Supermarket Type1 > 0.5 and Item_MRP > 202.7861 and Item_MRP > 226.4536"
+        }
+    },
+    "sample_single_with_missing": {
+        "input_sample": {
+            "Item_Identifier": "FDX07",
+            "Item_Weight": null,
+            "Item_Fat_Content": "reg",
+            "Item_Visibility": 0.0,
+            "Item_Type": "Snack Foods",
+            "Item_MRP": 182.095,
+            "Outlet_Identifier": "OUT027",
+            "Outlet_Establishment_Year": 1985,
+            "Outlet_Size": null,
+            "Outlet_Location_Type": "Tier 3",
+            "Outlet_Type": "Supermarket Type3"
+        },
+        "linear_regression": {
+            "predicted_sales": 4272.07
+        },
+        "decision_tree": {
+            "predicted_sales": 4702.18,
+            "leaf_node_id": 56,
+            "decision_path": "Item_MRP > 143.5299 and Outlet_Type_Supermarket Type3 > 0.5 and Item_MRP > 172.1264 and Item_MRP <= 226.0207 and Item_Visibility <= 0.0168"
+        }
+    }
+}
